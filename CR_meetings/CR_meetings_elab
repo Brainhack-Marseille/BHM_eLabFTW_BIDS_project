@@ -1,0 +1,94 @@
+Réu eLabFTW Marseille
+2024-03-22
+
+Présents:
+Laure Spieser (CRPN)
+Kevin Poirot (CRPN)
+Dipankar Bachar (INT)
+Killian Rochet (INT)
+Christelle Zielinski (LPL)
+Sylvain Takerkart (INT)
+Simon Moré (CRPN)
+
+
+Tour de table de “qui a fait quoi?”
+Laure: il y a eu des discussions au CRPN autour de eLab; Kevin ajoute qu’il y a aussi eu des discussions autour de la possibilité d’utiliser eLab pour faire de la réservation de ressources (salles de réunion etc.)
+Christelle a discuté avec l’INS, voici l’outil qu’ils ont développé…
+BIDS Manager Pipeline : https://www.sciencedirect.com/science/article/pii/S2772528622000346
+https://github.com/Dynamap/BIDS_Manager
+Killian : Création github, rajout de la doc concernant l’utilisation d’eLab (fait lundi)... Le dépot est là: https://github.com/Brainhack-Marseille/BHM_eLabFTW_BIDS_project
+
+Outil en Python, développé par l’INT, pour interagir avec eLab au moyen de lignes de commandes : DigLabTools . Le prérequis pour utiliser DigLabTools : générer une clé API sur eLabFTW.
+
+Sylvain : Discussion avec la chargée CNRS d’eLabFTW. Précurseur pour créer un outil pour générer des proformats/templates à intégrer à eLab pour chaque type d’expérimentation, à partir de spécifications (BIDS ou autre).
+Demander à la communauté neurosciences si intéressée pour pousser auprès de Nicolas Carpi
+Spec BIDS -> fichiers YAML assez ardus à lire
+Discussion avec Martin Szinte…. De l’INT sur le BIDS pour l’eye-tracking : ce n’est pas encore dans les specs de BIDS. Les fichiers eye-link possèdent déjà la plupart des champs requis pour le BIDS. Donc l’idée est de faire des templates avec uniquement les champs requis manquant aux métadonnées des fichiers eye-link. Attention, il existe d’autres fabricants d’eye-tracker (Toibi)
+Laure se propose d’essayer d’utiliser eLabFTW et l’outil DigLabTools pour générer des données EEG en BIDS
+Prochaine réu fixée le 25/04 à 11h à l’INT
+
+
+
+Réu eLabFTW Marseille
+2024-02-19
+
+Présents:
+Laure Spieser (CRPN)
+Kevin Poirot (CRPN)
+Caroline Strube (CRPN)
+Dipankar Bachar (INT)
+Killian Rochet (INT)
+Fatai Idrissou (INT)
+Christelle Zielinski (LPL)
+Sylvain Takerkart (INT)
+
+
+Demande d’implémentation de nouvelles fonctionnalités eLab possible via forum ou à Nicolas Carpi avec Nathalie Léon en copie. Sylvain : mieux de faire plusieurs demandes par labo plutôt qu’une groupée.
+(prochain échange Community meeting eLabFTW le 7 mars)
+Partage des templates → Github du Brainhack (ou de l’INT ?)
+Killian a développé un outil d’export des meta-données d’eLabFTW vers un fichier tsv.
+Voir côté INS-SEEG/MEG l’outil de bidification (@Christelle)
+Question de la notion de projet dans eLab :
+
+pour Sylvain, BIDS = un standard qui permet de définir ce qu’est une expérience dans l’eLab (répertoire haut niveau (=un projet avec une répétition d’xp qui suivent le même protocole), puis les sujets, puis sessions et modalités) => xp d’eLab = une session d’enregistrement
+Caroline : une xp = un sujet (avec to-do liste associée consentement, …)
+créer des guidelines avec structuration/nomenclature pour que l’automatisation soit ensuite possible (exemple, export d’une ou plusieurs xp d’un coup)
+l’utilisation des tags par projet pourrait faciliter l’extraction par l’API python (uniquement les xp avec ce tag à exporter)
+indication à l’entrée du script Python, du nom du tag (+ la clé API de l’utilisateur nécessaire pour accéder à ses données, à récupérer depuis son “User panel” sur l’eLab)
+https://github.com/INT-NIT/DigLabTools (export des méta-données selon le tag)
+@INT, équipes = celles de l’INT ; groupe = ceux qui travaillent sur même manip ou projet
++ sur le github, documentation sur le mode d’utilisation proposé à l’INT
+
+
+Prochaine réu : vendredi 22 Mars à 14h
+Réu eLabFTW Marseille
+2024-02-05
+
+Présents:
+Laure Spieser (CRPN)
+Kevin Poirot (CRPN)
+Anne-Sophie Dubarry (CRPN)
+Dipankar Bachar (INT)
+Killian Rochet (INT)
+Xavier Alario (CRPN)
+Christelle Zielinski (LPL)
+Sylvain Takerkart (INT)
+
+Tour de table… Qui a fait qqchose depuis le BrainHack?
+
+Anne-So… description du projet de BIDSification de données EEG, en cours au service info du CRPN
+Kevin… a tenté de lancer un modèle eLab pour la microscopie, mais difficile car très large…
+Killian… a continué à travailler sur les templates utilisés à l’INT; tente de standardiser avec Sylvain
+Dipankar … Continuer à suivre Killian et Sylvain
+Christelle… formation pilotes CLE@Paris à venir 7-8/02
+Xavier… va devenir “Mr Data” au CRPN ;) (missions restant à définir…)
+Sylvain : politique à l’INT -> pas pousser (encore) à l’utilisation du eLab tant que pas prêts. Now : 2 projets 3 utilisateurs. Objectif mettre à dispo des template pour d’autres projets + répondre aux besoins des utilisateurs.
+
+Questions:
+Le template : https://mattermost.brainhack.org/api/v4/files/ztuecbog4fd9mbu64n91r8o5rh?download=1
+Comment partager les templates entre nos labos?
+Création d’un ensemble de guidelines pour aider nos utilisateurs (par ex.: “comment implémenter le concept de projet qui n’existe pas dans eLab?”)
+Une fois le template mis en place, comment en extraire les données et créer la hiérarchie BIDS avec les bons fichiers aux bons endroits ?
+Un ordi/tablette accessible par tout les monde de la equipe?
+
+Prochaine réu 19/02 15h
